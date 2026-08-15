@@ -1,0 +1,31 @@
+
+user_data = {}
+is_user_available = True
+
+max = 0
+while is_user_available :
+
+    name = input("What is your name ? ")
+    bid = float(input("What is your bid ? : $"))
+
+    user_data[name] = bid
+
+
+    user_available = input("Are there any other bidders - yes or no ? :").lower()
+    if user_available == "yes":
+        pass
+
+    elif user_available not in ["yes", "no"]:
+        print("Select from yes or no")
+
+    else :
+        is_user_available = False
+        highest_bid = 0
+        winner = ""
+
+        for user in user_data:
+            if user_data[user] > highest_bid:
+                highest_bid = user_data[user]
+                winner = user
+
+        print(f"Highest bid is from {winner} : ${highest_bid}")
